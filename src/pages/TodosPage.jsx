@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import useFetch from '../hooks/useFetch';
 
@@ -7,7 +7,7 @@ const TodosPage = () => {
     data: todos,
     isLoading,
     error,
-  } = useFetch('https://jsonplaceholder.typicode.com/todos');
+  } = useFetch('https://jsonplaceholder.typicode.com/todos'); // , +id
   //
 
   return (
@@ -19,6 +19,8 @@ const TodosPage = () => {
         <div>
           {isLoading ? (
             <p>Loading...</p>
+          ) : error ? (
+            <p>{error}</p>
           ) : (
             todos.map((todo) => (
               <ul key={todo.id}>

@@ -18,6 +18,8 @@ const PostPage = () => {
           <div>
             {isLoading ? (
               <p>Loading...</p>
+            ) : error ? (
+              <p>{error}</p>
             ) : (
               posts.map((post) => (
                 <ul key={post.id}>
@@ -28,7 +30,6 @@ const PostPage = () => {
             )}
           </div>
         </section>
-        {error && <p>{error}</p>}
       </main>
     </>
   );
